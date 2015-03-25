@@ -7,7 +7,10 @@ An integration between python-social-auth and django-rest-framework.
 This package depends on python-social-auth and django-rest-framework.
 
 
-Quick start
+Setup
+-----
+
+settings.py
 -----------
 
 1. Add "drf_js_social" to INSTALLED_APPS:
@@ -112,8 +115,27 @@ Quick start
         'jssocialauth.pipeline.sessionize',
     )
 
-    
+
 
 6. Setup a session field for django social auth:
 
     FIELDS_STORED_IN_SESSION = ['authkey']
+
+
+urls.py
+-------
+
+
+hook up the app urls in your main urls.py:
+
+
+
+    urlpatterns = patterns('',
+
+        url('socialauth', include('drf_js_social.urls')),
+        
+
+)
+
+
+
