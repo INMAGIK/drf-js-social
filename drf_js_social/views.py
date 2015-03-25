@@ -4,6 +4,8 @@ from rest_framework.authtoken.models import Token
 from django.http import Http404
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 
 class TokenPopView(TemplateView):
     template_name = "jssocialauth/token_pop.html"
@@ -34,8 +36,11 @@ from rest_framework.decorators import api_view
 from .serializers import UserSerializer
 
 
-
 class CurrentUserView(APIView):
-    def get(self, request):
+    authentication_classes = (SessionAuthentication, TokenAuthentication)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, format=None):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+
