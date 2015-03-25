@@ -7,14 +7,14 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
  
 setup(
-    name = 'django-myblog',
+    name = 'drf-js-social',
     version = '0.1',
-    packages = ['myblog'],
+    packages = ['drf_js_social'],
     include_package_data = True,
     license = 'BSD License',
     description = 'An integration between python-social-auth and django-rest-framework',
     long_description = README,
-    url = 'http://www.example.com/',
+    url = 'https://github.com/INMAGIK/drf-js-social',
     author = 'Mauro Bianchi',
     author_email = 'biachimro@gmail.com',
     classifiers =[
