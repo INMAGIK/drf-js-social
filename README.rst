@@ -131,11 +131,9 @@ hook up the app urls in your main urls.py:
 
 
     urlpatterns = patterns('',
-
         url('socialauth', include('drf_js_social.urls')),
-        
 
-)
+    )
 
 
 
